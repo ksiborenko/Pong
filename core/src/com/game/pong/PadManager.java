@@ -10,7 +10,7 @@ public class PadManager {
     public static final int PAD_WIDTH = 10;
     public static final int PAD_SPACING = 1000;
     public static final int PAD_Y_POSITION = App.HEIGHT / 2 - PAD_HEIGHT / 2;
-    private Shape[] pads;
+    private final Shape[] pads;
 
     public PadManager() {
         this.pads = new Shape[PAD_AMOUNT];
@@ -23,7 +23,10 @@ public class PadManager {
     public void render(ShapeRenderer renderer, float delta) {
         for (int padIndex = 0; padIndex < PAD_AMOUNT; padIndex++) {
             this.pads[padIndex].render(renderer, delta);
+            this.pads[0].updateLeft(delta);
+            this.pads[1].updateRight(delta);
         }
+
     }
 
 }

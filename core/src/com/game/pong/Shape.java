@@ -18,18 +18,24 @@ public class Shape {
         this.height = height;
     }
 
-    public void render (ShapeRenderer renderer, float delta) {
+    public void render(ShapeRenderer renderer, float delta) {
         renderer.rect(this.xPosition, this.yPosition, this.width, this.height);
-
-
-        this.update(delta);
     }
 
-    private void update(float delta) {
+    protected void updateLeft(float delta) {
         if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
             this.yPosition += PAD_SPEED * delta;
         }
         if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
+            this.yPosition -= PAD_SPEED * delta;
+        }
+    }
+
+    protected void updateRight(float delta) {
+        if (Gdx.input.isKeyPressed(Input.Keys.W)) {
+            this.yPosition += PAD_SPEED * delta;
+        }
+        if (Gdx.input.isKeyPressed(Input.Keys.S)) {
             this.yPosition -= PAD_SPEED * delta;
         }
     }
