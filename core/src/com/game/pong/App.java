@@ -2,16 +2,16 @@ package com.game.pong;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
 public class App extends Game {
 
 	public static final int WIDTH = 1200;
 	public static final int HEIGHT = 800;
-	public SpriteBatch batch;
-
+	public ShapeRenderer renderer;
 	@Override
 	public void create () {
-		this.batch = new SpriteBatch();
+		this.renderer = new ShapeRenderer();
 	}
 
 	@Override
@@ -24,6 +24,6 @@ public class App extends Game {
 	@Override
 	public void dispose () {
 		super.dispose();
-		this.batch.dispose();
+		this.renderer.dispose();
 	}
 }
