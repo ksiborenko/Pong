@@ -1,13 +1,11 @@
 package com.game.pong;
 
 import com.badlogic.gdx.Game;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class App extends Game {
 
-	public static final int WIDTH = 800;
+	public static final int WIDTH = 1200;
 	public static final int HEIGHT = 800;
 	public SpriteBatch batch;
 
@@ -19,10 +17,8 @@ public class App extends Game {
 	@Override
 	public void render () {
 		super.render();
-		Gdx.gl.glClearColor(1, 0, 0, 1);
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		batch.begin();
-		batch.end();
+		this.setScreen(new GameScreen(this));
+
 	}
 	
 	@Override
