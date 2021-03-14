@@ -6,29 +6,32 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
 public class Shape {
 
-    public static final int SPEED = 200;
-    private final int x, width, height;
-    private int y;
+    public static final int PAD_SPEED = 200;
+    private final int width, height;
+    private int xPosition;
+    private int yPosition;
 
-    public Shape(int x, int y, int width, int height) {
-        this.x = x;
-        this.y = y;
+    public Shape(int xPosition, int yPosition, int width, int height) {
+        this.xPosition = xPosition;
+        this.yPosition = yPosition;
         this.width = width;
         this.height = height;
     }
 
-    public void render(ShapeRenderer renderer) {
-        renderer.rect(this.x, this.y, this.width, this.height);
+    public void render (ShapeRenderer renderer, float delta) {
+        renderer.rect(this.xPosition, this.yPosition, this.width, this.height);
+
+
+        this.update(delta);
     }
 
-    public void leftPadMovement(float delta) {
-        if (Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
-            this.y += SPEED * delta;
-            System.out.println(this.y);
+    private void update(float delta) {
+        if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
+            this.yPosition += PAD_SPEED * delta;
         }
         if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
-            this.y += -SPEED * delta;
-            System.out.println(this.y);
+            this.yPosition -= PAD_SPEED * delta;
         }
     }
+
 }
