@@ -46,7 +46,6 @@ public class Ball {
         if (this.yPosition >= App.HEIGHT - SIZE) {
             this.yPosition = App.HEIGHT - SIZE;
             this.ySpeed = -this.ySpeed;
-
         }
     }
 
