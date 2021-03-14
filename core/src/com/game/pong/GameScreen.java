@@ -9,12 +9,12 @@ public class GameScreen implements Screen {
 
     private final App app;
     private final PadManager padManager;
-    private final Ball ball;
+    private final BallManager ballManager;
 
     public GameScreen(App app) {
         this.app = app;
         this.padManager = new PadManager();
-        this.ball = new Ball();
+        this.ballManager = new BallManager();
     }
 
     @Override
@@ -23,7 +23,7 @@ public class GameScreen implements Screen {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         this.app.renderer.begin(ShapeRenderer.ShapeType.Filled);
         this.padManager.render(this.app.renderer, Gdx.graphics.getDeltaTime());
-        this.ball.render(this.app.renderer, Gdx.graphics.getDeltaTime());
+        this.ballManager.render(this.app.renderer, Gdx.graphics.getDeltaTime());
         this.app.renderer.end();
     }
 

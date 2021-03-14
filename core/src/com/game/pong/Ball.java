@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class Ball {
 
-    private static final int size = 10;
+    public static final int SIZE = 10;
     private int xSpeed = 0;
     private int ySpeed = 0;
     private int xPosition, yPosition;
@@ -25,7 +25,7 @@ public class Ball {
     }
 
     public void render(ShapeRenderer renderer, float delta) {
-        renderer.circle(this.xPosition, this.yPosition, size);
+        renderer.circle(this.xPosition, this.yPosition, SIZE);
         this.update(delta);
     }
 
@@ -39,8 +39,18 @@ public class Ball {
             this.xPosition += xSpeed * delta;
             this.yPosition += ySpeed * delta;
         }
-        if (this.yPosition >= App.HEIGHT - size || this.yPosition <= size) {
-            this.ySpeed = -ySpeed;
+        if (this.yPosition <= SIZE) {
+            this.yPosition = SIZE;
+            this.ySpeed = -this.ySpeed;
         }
+        if (this.yPosition >= App.HEIGHT - SIZE) {
+            this.yPosition = App.HEIGHT - SIZE;
+            this.ySpeed = -this.ySpeed;
+
+        }
+    }
+
+    public int getXPosition() {
+        return xPosition;
     }
 }
