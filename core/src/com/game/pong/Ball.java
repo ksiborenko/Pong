@@ -18,10 +18,8 @@ public class Ball {
         this.xPosition = App.WIDTH / 2;
         this.yPosition = App.HEIGHT / 2;
         this.random = new Random();
-        this.randomSpeed = new int[3];
+        this.randomSpeed = new int[]{-200, 200, 0};
         this.draw = Draw.INITIAL;
-        this.randomSpeed[0] = -200;
-        this.randomSpeed[1] = 200;
     }
 
     public void render(ShapeRenderer renderer, float delta) {
