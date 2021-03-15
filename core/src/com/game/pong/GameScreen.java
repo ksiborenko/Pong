@@ -10,11 +10,13 @@ public class GameScreen implements Screen {
     private final App app;
     private final PadManager padManager;
     private final BallManager ballManager;
+    private final CollisionDetection collisionDetection;
 
     public GameScreen(App app) {
         this.app = app;
         this.padManager = new PadManager();
         this.ballManager = new BallManager();
+        this.collisionDetection = new CollisionDetection();
     }
 
     @Override
@@ -25,6 +27,7 @@ public class GameScreen implements Screen {
         this.padManager.render(this.app.renderer, Gdx.graphics.getDeltaTime());
         this.ballManager.render(this.app.renderer, Gdx.graphics.getDeltaTime());
         this.app.renderer.end();
+        this.collisionDetection.detection(this.padManager.getPads(), this.ballManager.getBalls());
     }
 
 

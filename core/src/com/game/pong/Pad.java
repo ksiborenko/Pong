@@ -4,21 +4,21 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
-public class Shape {
+public class Pad {
 
     public static final int PAD_SPEED = 200;
     private final int width, height;
-    private int xPosition;
+    private final int xPosition;
     private int yPosition;
 
-    public Shape(int xPosition, int yPosition, int width, int height) {
+    public Pad(int xPosition, int yPosition, int width, int height) {
         this.xPosition = xPosition;
         this.yPosition = yPosition;
         this.width = width;
         this.height = height;
     }
 
-    public void render(ShapeRenderer renderer, float delta) {
+    public void render(ShapeRenderer renderer) {
         renderer.rect(this.xPosition, this.yPosition, this.width, this.height);
     }
 
@@ -29,6 +29,8 @@ public class Shape {
         if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
             this.yPosition -= PAD_SPEED * delta;
         }
+        this.padBoarders();
+
     }
 
     protected void updateRight(float delta) {
@@ -38,6 +40,31 @@ public class Shape {
         if (Gdx.input.isKeyPressed(Input.Keys.S)) {
             this.yPosition -= PAD_SPEED * delta;
         }
+        this.padBoarders();
     }
 
+    private void padBoarders() {
+        if (this.yPosition >= App.HEIGHT - this.height) {
+            this.yPosition = App.HEIGHT - this.height;
+        }
+        if (this.yPosition <= 0) {
+            this.yPosition = 0;
+        }
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public int getXPosition() {
+        return xPosition;
+    }
+
+    public int getyPosition() {
+        return yPosition;
+    }
 }

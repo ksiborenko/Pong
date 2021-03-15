@@ -46,8 +46,16 @@ public class Ball {
             this.ySpeed = -this.ySpeed;
         }
     }
+    public void reverseSpeed () {
+        this.ySpeed = -this.ySpeed;
+        this.xSpeed = -this.xSpeed;
+    }
 
     public int getXPosition() {
         return xPosition;
+    }
+
+    public int getYPosition() {
+        return yPosition;
     }
 }

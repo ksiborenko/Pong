@@ -33,4 +33,7 @@ public class BallManager {
         }
     }
 
+    public Array<Ball> getBalls() {
+        return balls;
+    }
 }
