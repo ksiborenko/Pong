@@ -6,8 +6,8 @@ public class PadManager {
 
     public static final int PAD_AMOUNT = 2;
     public static final int PAD_X_POSITION = 100;
-    public static final int PAD_HEIGHT = 100;
-    public static final int PAD_WIDTH = 10;
+    public static final int PAD_HEIGHT = 75;
+    public static final int PAD_WIDTH = 15;
     public static final int PAD_SPACING = 1000;
     public static final int PAD_Y_POSITION = App.HEIGHT / 2 - PAD_HEIGHT / 2;
     private final Pad[] pads;
@@ -15,8 +15,8 @@ public class PadManager {
     public PadManager() {
         this.pads = new Pad[PAD_AMOUNT];
         for (int padIndex = 0; padIndex < PAD_AMOUNT; padIndex++) {
-            this.pads[padIndex] = new Pad(PAD_X_POSITION + (padIndex * PAD_SPACING),
-                    PAD_Y_POSITION, PAD_WIDTH, PAD_HEIGHT);
+            this.pads[padIndex] = new Pad(PAD_X_POSITION + (padIndex * PAD_SPACING), PAD_Y_POSITION ,
+                    PAD_WIDTH, PAD_HEIGHT);
         }
     }
 

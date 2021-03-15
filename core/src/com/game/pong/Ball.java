@@ -4,21 +4,22 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
 import java.util.Random;
 
+
 public class Ball {
 
     public static final int SIZE = 10;
-    private int xSpeed = 0;
-    private int ySpeed = 0;
-    private int xPosition, yPosition;
+    private double xSpeed = 0;
+    private double ySpeed = 0;
+    private float xPosition, yPosition;
     private final Random random;
     private final int[] randomSpeed;
     private Draw draw;
 
     public Ball() {
-        this.xPosition = App.WIDTH / 2;
-        this.yPosition = App.HEIGHT / 2;
+        this.xPosition = (float) App.WIDTH / 2;
+        this.yPosition = (float) App.HEIGHT / 2;
         this.random = new Random();
-        this.randomSpeed = new int[]{-200, 200, 0};
+        this.randomSpeed = new int[]{-300, 300, 0};
         this.draw = Draw.INITIAL;
     }
 
@@ -29,8 +30,8 @@ public class Ball {
 
     private void update(float delta) {
         if (this.draw == Draw.INITIAL) {
-            xSpeed = this.randomSpeed[this.random.nextInt(2)];
-            ySpeed = this.randomSpeed[this.random.nextInt(3)];
+            this.xSpeed = this.randomSpeed[this.random.nextInt(2)];
+            this.ySpeed = 400 * Math.cos(random.nextInt(180));
             this.draw = Draw.BALL_IN_GAME;
         }
         if (this.draw == Draw.BALL_IN_GAME) {
@@ -46,16 +47,21 @@ public class Ball {
             this.ySpeed = -this.ySpeed;
         }
     }
-    public void reverseSpeed () {
-        this.ySpeed = -this.ySpeed;
+
+    public void reverseSpeed(double ySpeed) {
+        this.ySpeed=ySpeed;
         this.xSpeed = -this.xSpeed;
     }
 
-    public int getXPosition() {
+    public float getXPosition() {
         return xPosition;
     }
 
-    public int getYPosition() {
+    public float getYPosition() {
         return yPosition;
+    }
+
+    public void setXSpeed() {
+        this.xSpeed = this.xSpeed * 1.1f;
     }
 }

@@ -64,7 +64,7 @@ public class Pad {
         return xPosition;
     }
 
-    public int getyPosition() {
+    public int getYPosition() {
         return yPosition;
     }
 }
