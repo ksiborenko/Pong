@@ -31,7 +31,7 @@ public class Ball {
     private void update(float delta) {
         if (this.draw == Draw.INITIAL) {
             this.xSpeed = this.randomSpeed[this.random.nextInt(2)];
-            this.ySpeed = 400 * Math.cos(random.nextInt(180));
+            this.ySpeed = 300 * Math.cos(random.nextInt(180));
             this.draw = Draw.BALL_IN_GAME;
         }
         if (this.draw == Draw.BALL_IN_GAME) {
@@ -62,7 +62,7 @@ public class Ball {
     }
 
     public void setXSpeed() {
-        this.xSpeed = this.xSpeed * 1.05f;
+        this.xSpeed = this.xSpeed * 1.1f;
     }
 
     public int[] getRandomSpeed() {
