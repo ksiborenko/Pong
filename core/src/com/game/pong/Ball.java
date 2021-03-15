@@ -49,7 +49,7 @@ public class Ball {
     }
 
     public void reverseSpeed(double ySpeed) {
-        this.ySpeed=ySpeed;
+        this.ySpeed = ySpeed;
         this.xSpeed = -this.xSpeed;
     }
 
@@ -62,7 +62,7 @@ public class Ball {
     }
 
     public void setXSpeed() {
-        this.xSpeed = this.xSpeed * 1.1f;
+        this.xSpeed = this.xSpeed * 1.05f;
     }
 
     public int[] getRandomSpeed() {
