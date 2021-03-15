@@ -64,4 +64,8 @@ public class Ball {
     public void setXSpeed() {
         this.xSpeed = this.xSpeed * 1.1f;
     }
+
+    public int[] getRandomSpeed() {
+        return randomSpeed;
+    }
 }

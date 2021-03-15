@@ -12,8 +12,17 @@ public class CollisionDetection {
                         balls.get(ballIndex).getXPosition() + Ball.SIZE >= pads[padIndex].getXPosition() &&
                         balls.get(ballIndex).getYPosition() + Ball.SIZE >= pads[padIndex].getYPosition() &&
                         balls.get(ballIndex).getYPosition() - Ball.SIZE <= pads[padIndex].getYPosition() + pads[padIndex].getHeight()) {
-                    balls.get(ballIndex).setXSpeed();
-                    balls.get(ballIndex).reverseSpeed(-300);
+                    if (balls.get(ballIndex).getYPosition() - Ball.SIZE <= pads[padIndex].getYPosition() + (float) pads[padIndex].getHeight() / 3) {
+                        balls.get(ballIndex).setXSpeed();
+                        balls.get(ballIndex).reverseSpeed(balls.get(ballIndex).getRandomSpeed()[0]);
+                    } else if (balls.get(ballIndex).getYPosition() - Ball.SIZE >= pads[padIndex].getYPosition() + (float) pads[padIndex].getHeight() / 3 * 2) {
+                        balls.get(ballIndex).setXSpeed();
+                        balls.get(ballIndex).reverseSpeed(balls.get(ballIndex).getRandomSpeed()[1]);
+                    } else if (balls.get(ballIndex).getYPosition() - Ball.SIZE <= pads[padIndex].getYPosition() + (float) pads[padIndex].getHeight() / 3 * 2 &&
+                            balls.get(ballIndex).getYPosition() - Ball.SIZE >= pads[padIndex].getYPosition() + (float) pads[padIndex].getHeight() / 3) {
+                        balls.get(ballIndex).setXSpeed();
+                        balls.get(ballIndex).reverseSpeed(balls.get(ballIndex).getRandomSpeed()[2]);
+                    }
                 }
             }
         }
